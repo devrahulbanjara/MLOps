@@ -68,4 +68,3 @@ git clone https://github.com/devrahulbanjara/MLOps.git
 This repository is licensed under the [MIT License](./LICENSE).
 
 ---
-Check out the repository [here](https://github.com/devrahulbanjara/MLOps).
