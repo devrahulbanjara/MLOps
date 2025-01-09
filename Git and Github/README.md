@@ -94,5 +94,22 @@ we can do git branch helper <sha id> , to create a branch from previous commit
 
 do git branch to see which branch we are in, shows * infront of the branch
 
-(Work started in secondary branch)
-(Work finished in secondary branch)
+suppose that we have made 3 commits so far without making in branches, and we made a new branch secondary from 3rd commit, and there are two pathways now,
+we will make commit 4,5 in secondary branch , and commit 6,7 in main branch itself
+
+
+doing git log --oneline in each branch shows the commits before branch was created and their respective branch commit ,
+but
+doing git log --oneline --all shows all the commits made before separating branches, and all the commits made in all branches together
+but this is not so readable when the commits are more
+
+git log --oneline --all --graph
+this shows a graph of a new branch diverging and the main branch still on a straight line
+
+deleting a branch is simple, git branch -d secondary will delete my secondary , if it has been merged to some branch, if not it will throw an error saying this branchs information might be useful and hasnt been merged
+but doing git branch -D secondary will delete it without any error even if it hasnt been merged.like force delete
+make sure you are on any other branch than the one you are trying to delete
+
+
+
+we will create a new branch from commit 7 named secondary 2
