@@ -10,7 +10,7 @@ Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** to
 - **Collaboration**: Synchronize progress among team members.
 - **Non-linear Development**: Work on multiple tasks simultaneously using branches that can be merged later.
 
----
+A quick tip 😉: Get used to writing commit messages in the present tense—it’s a better practice.
 
 ## Git Workflow
 
@@ -28,25 +28,23 @@ Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** to
    git commit -m "Work done for the day"
    git push
    ```
-2. Resume tomorrow by pulling changes and continuing.
-
----
+2. Resume tomorrow from the same place where you left today, minimizing the risk of code loss.
 
 ## Git Commands for Beginners
 
 ### Basic Commands
 
-- **Initialize a repository**: 
+- **Initialize a repository**:
   ```bash
   git init
   ```
   Creates a new Git repository in the current folder.
 
-- **Check status**: 
+- **Check status**:
   ```bash
   git status
   ```
-  Shows the status of changes (e.g., tracked, untracked, staged).
+  Shows the status of changes (e.g., tracked, untracked, staged, modified).
 
 - **Stage changes**:
   ```bash
@@ -61,10 +59,10 @@ Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** to
   ```
   Saves changes to the local repository with a descriptive message.
 
-- **Ignore files**: Create a `.gitignore` file and list filenames or patterns to exclude from tracking.
+- **Ignore files**: Create a `.gitignore` file and list filenames or patterns to exclude from tracking. Useful when you have stored passwords or some confidential keys in your repository.
 
 - **View commit history**:
-  - Concise history: 
+  - Concise history:
     ```bash
     git log --oneline
     ```
@@ -88,9 +86,9 @@ Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** to
      git checkout 6c055a7
      ```
 
----
-
 ## Branching in Git
+
+Branching is essential for collaboration and testing new features without affecting the main working system.
 
 ### Creating and Managing Branches
 
@@ -156,7 +154,7 @@ Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** to
 
 ### Example: Diverging Branches
 
-1. **Main branch commits**: Commit `1`, `2`, `3`.
+1. **Main branch commits**: Suppose we have made 3 commits already in main branch so far which are `1`, `2`, `3`, now create a clone of the main branch from the third commit.
 2. **Create `secondary` branch from commit `3`**:
    ```bash
    git branch secondary
@@ -174,27 +172,43 @@ Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** to
      git log --oneline --all --graph
      ```
 
----
+   ![Secondary Branch](../images/secondarybranch.png)
+
+4. **Delete the secondary branch**:
+   - Switch to the `main` branch:
+     ```bash
+     git checkout main
+     ```
+   - Delete the `secondary` branch forcefully:
+     ```bash
+     git branch -D secondary
+     ```
+
+   ![Secondary Branch Deleted](../images/secondarybranch_deleted.png)
 
 ## Merging in Git
 
-### Fast-Forward Merge
+### Simple Merge
 
-1. Create a branch (`secondary2`) and add commits `8`, `9`.
+1. Create a branch (`secondary2`) from commit no.`7` made earlier and add commits `8`, `9` in the new branch.
 2. Merge into `main`:
    ```bash
    git checkout main
+   ```
+   ![Secondary2 Branch](../images/secondary2branch.png)
+3. Merge to the main branch:
+   ```bash
    git merge secondary2
    ```
-   The `main` branch now contains all commits from `secondary2` (fast-forwarded to commit `9`).
-
+   The `main` branch now contains all commits from `secondary2` (fast-forwarded to commit `9`), due to which this type of merge is also called fast forward merge.
 3. Delete the merged branch:
    ```bash
-   git branch -d secondary2
+   git branch -D secondary2
    ```
+   ![Secondary2 Branch Deleted](../images/secondary2branch_deleted.png)
 
 ### Merge Conflicts
-
+Create a new branch final from the 9th commit we made from merging the secondary2 branch to the final.
 1. **Create conflicting branches**:
    - On `main`, modify a line in `first.py` and commit (`10`).
    - On `final`, modify the same line and commit (`11`).
@@ -205,6 +219,7 @@ Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** to
    git merge final
    ```
    A conflict arises because both branches modified the same line.
+   ![Final Branch](../images/finalbranch.png)
 
 3. **Resolve conflicts**:
    - Use an editor (e.g., VS Code) to choose:
@@ -218,8 +233,24 @@ Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** to
    git commit -m "Resolve merge conflict"
    ```
 
----
+## Uploading Empty Folders Using `.gitkeep`
+
+Git does not track empty folders by default. To include an empty folder in a repository, add a `.gitkeep` file inside it:
+
+1. Create the folder:
+   ```bash
+   mkdir empty_folder
+   ```
+2. The command will create the `.gitkeep` file :
+   ```bash
+   touch empty_folder/.gitkeep
+   ```
+3. Stage and commit:
+   ```bash
+   git add empty_folder/.gitkeep
+   git commit -m "Add empty folder using .gitkeep"
+   ```
 
 ## Summary
 
-Git is a robust tool for version control, supporting collaborative and non-linear development. By mastering basic commands, branching, merging, and conflict resolution, you can effectively manage your codebase and streamline team workflows.
+Git is a robust tool for version control, supporting collaborative and non-linear development. By mastering basic commands, branching, merging, conflict resolution, and managing empty folders with `.gitkeep`, you can effectively manage your codebase and streamline team workflows.
