@@ -93,3 +93,5 @@ git branch helper
 we can do git branch helper <sha id> , to create a branch from previous commit
 
 do git branch to see which branch we are in, shows * infront of the branch
+
+(Work started in secondary branch)
