@@ -2,7 +2,11 @@
 
 ## Introduction
 
-Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** tool that helps developers manage and track changes to their codebase efficiently. GitHub is a platform that hosts Git repositories remotely, enabling collaboration and code sharing.
+Git is a **Version Control System (VCS)** or **Source Code Management (SCM)** tool that helps developers manage and track changes to their codebase efficiently. 
+
+### Why do you need Git ?
+
+Imagine you are writing a Python file, `example.py`, and you make changes to the code every day. Without Git, you might save multiple versions of the file with names like `example_v1.py`, `example_v2.py`, or `example_final.py`, which can quickly become confusing. Git helps by keeping all versions in one place and letting you easily see what changed, go back to an earlier version if needed, or even work with others on the same file without messing things up. It's like having a time machine for your code that works automatically and keeps everything organized. GitHub is a platform that hosts Git repositories remotely, enabling collaboration and code sharing.
 
 ### Key Features of Git
 
@@ -76,7 +80,7 @@ A quick tip 😉: Get used to writing commit messages in the present tense—it�
     ```
 
 - **Rollback to a previous commit**:
-  1. View the commit history:
+  1. View the commit history: Rollback is often needed when the previous version of your code performs better than the current, and you want to move back to the previous one.
      ```bash
      git log --oneline
      ```
