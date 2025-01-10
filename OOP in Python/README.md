@@ -355,7 +355,7 @@ print(Metrics.description())  # Output: Metrics computes metrics.
 
 ## 9. Dynamic Typing vs. Static Type Checking
 
-Python is dynamically typed, but type hints can improve code clarity (*Not o OOP concept but still adding it here*).
+Python is dynamically typed, but type hints can improve code clarity (*Not a OOP concept but still adding it here*).
 
 ```python
 # Without type hints
