@@ -17,17 +17,17 @@ This guide will walk you through OOP concepts, progressing from beginner to adva
 1. [Basics of OOP](#1-basics-of-oop)
    - Classes and Objects
    - Variables and Functions
-2. [Intermediate OOP Concepts](#2-intermediate-oop-concepts)
-   - Constructors
-   - Dunder Methods
-3. [Advanced OOP Concepts](#3-advanced-oop-concepts)
-   - Inheritance
-   - Abstract Base Classes
-   - Polymorphism
-   - Encapsulation
-   - Static and Class Methods
-   - Dynamic Typing vs. Static Type Checking
-4. [Summary and Best Practices](#4-summary-and-best-practices)
+2. [Constructors](#2-constructors)
+3. [Dunder Methods](#3-dunder-methods)
+   - `__str__` and `__repr__`
+   - Adding with `__add__`
+4. [Inheritance](#4-inheritance)
+5. [Abstract Base Classes](#5-abstract-base-classes)
+6. [Polymorphism](#6-polymorphism)
+7. [Encapsulation](#7-encapsulation)
+8. [Static and Class Methods](#8-static-and-class-methods)
+9. [Dynamic Typing vs. Static Type Checking](#9-dynamic-typing-vs-static-type-checking)
+10. [Summary and Best Practices](#10-summary-and-best-practices)
 
 ---
 
@@ -69,9 +69,8 @@ print(scientist.introduce())  # Output: Hi, I'm Rahul and I specialize in Data S
 
 ---
 
-## 2. Intermediate OOP Concepts
+## 2. Constructors
 
-### Constructors
 Constructors (“`__init__`” method) initialize an object when it’s created. They’re particularly useful for setting up initial states like model parameters or dataset paths.
 
 ```python
@@ -86,10 +85,14 @@ data = Dataset("data.csv")
 print(data.load_data())  # Output: Loading data from data.csv
 ```
 
-### Dunder Methods
+---
+
+## 3. Dunder Methods
+
 Dunder (double underscore) methods enable Python’s built-in functionality, like printing or adding objects.
 
-#### `__str__` and `__repr__`
+### `__str__` and `__repr__`
+
 - `__str__`: Provides a human-readable string representation of an object, suitable for end-users.
 - `__repr__`: Provides an unambiguous string representation of an object, suitable for developers.
 
@@ -108,9 +111,17 @@ class Vector:
 v = Vector(1, 2)
 print(str(v))  # Output: Vector with coordinates (1, 2)
 print(repr(v))  # Output: Vector(x=1, y=2)
+
+# Directly calling the object
+print(v)        # Output: Vector with coordinates (1, 2) (falls back to __str__)
 ```
 
+Why use `__str__` and `__repr__`?
+- **`__str__`** is for end-users, presenting information in a user-friendly way.
+- **`__repr__`** is for developers, providing an unambiguous and detailed representation to help debug and develop code.
+
 ### Adding with `__add__`
+
 ```python
 class Vector:
     def __init__(self, x, y):
@@ -130,9 +141,8 @@ print(v1 + v2)  # Output: Vector(4, 6)
 
 ---
 
-## 3. Advanced OOP Concepts
+## 4. Inheritance
 
-### Inheritance
 Inheritance allows a class (child) to inherit methods and attributes from another class (parent).
 
 ```python
@@ -163,7 +173,10 @@ class D(B, C): pass
 print(D.mro())
 ```
 
-### Abstract Base Classes (ABC)
+---
+
+## 5. Abstract Base Classes
+
 ABCs define a blueprint for other classes.
 
 ```python
@@ -182,7 +195,10 @@ scaler = Scaler()
 print(scaler.process([1, 2, 3]))  # Example output
 ```
 
-### Polymorphism
+---
+
+## 6. Polymorphism
+
 **Polymorphism** allows different classes to use the same method names.
 
 ```python
@@ -199,7 +215,10 @@ for model in models:
     print(model.evaluate())
 ```
 
-### Encapsulation
+---
+
+## 7. Encapsulation
+
 Encapsulation hides implementation details.
 
 ```python
@@ -222,7 +241,10 @@ class Data:
             raise ValueError("Data must be a list.")
 ```
 
-### Static and Class Methods
+---
+
+## 8. Static and Class Methods
+
 - **Static methods** don’t require an instance.
 - **Class methods** access class variables.
 
@@ -240,7 +262,10 @@ print(Metrics.mean([1, 2, 3]))  # Output: 2.0
 print(Metrics.description())  # Output: Metrics computes metrics.
 ```
 
-### Dynamic Typing vs. Static Type Checking
+---
+
+## 9. Dynamic Typing vs. Static Type Checking
+
 Python is dynamically typed, but type hints can improve code clarity.
 
 ```python
@@ -255,9 +280,11 @@ def add(a: int, b: int) -> int:
 
 ---
 
-## 4. Summary and Best Practices
+## 10. Summary and Best Practices
+
 - Understand basics before diving into advanced concepts.
 - Use OOP for reusable, organized, and scalable Data Science projects.
 - Follow Pythonic conventions and write clear, concise code.
 
 By mastering OOP, you’ll become more efficient in solving complex problems and developing robust Data Science pipelines.
+
