@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Object-Oriented Programming (OOP) is a programming paradigm that organizes code into reusable "objects." Python’s flexibility and support for OOP make it one of the most popular languages for Data Science, enabling clean, modular, and reusable code.
+Object-Oriented Programming (OOP) is a programming paradigm that organizes code into reusable "objects." Python’s flexibility and support for OOP make it one of the most popular languages for Data Science, enabling clean, modular, and reusable code. 
 
 In Data Science, OOP helps:
 - **Model real-world problems**: Represent datasets, models, and operations as objects.
@@ -34,7 +34,7 @@ This guide will walk you through OOP concepts, progressing from beginner to adva
 ## 1. Basics of OOP
 
 ### Classes and Objects
-**Classes** are blueprints for creating objects. **Objects** are instances of classes.
+**Classes** are blueprints for creating objects. **Objects** are instances of classes. 
 
 **Analogy**: A class is like a recipe, and objects are the dishes you prepare using it.
 
@@ -89,6 +89,28 @@ print(data.load_data())  # Output: Loading data from data.csv
 ### Dunder Methods
 Dunder (double underscore) methods enable Python’s built-in functionality, like printing or adding objects.
 
+#### `__str__` and `__repr__`
+- `__str__`: Provides a human-readable string representation of an object, suitable for end-users.
+- `__repr__`: Provides an unambiguous string representation of an object, suitable for developers.
+
+```python
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"Vector with coordinates ({self.x}, {self.y})"
+
+    def __repr__(self):
+        return f"Vector(x={self.x}, y={self.y})"
+
+v = Vector(1, 2)
+print(str(v))  # Output: Vector with coordinates (1, 2)
+print(repr(v))  # Output: Vector(x=1, y=2)
+```
+
+### Adding with `__add__`
 ```python
 class Vector:
     def __init__(self, x, y):
