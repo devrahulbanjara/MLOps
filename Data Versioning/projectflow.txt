@@ -1,0 +1,13 @@
+inside a local repo, create code.py and code to it, it will save a csv file to a new data folder
+add commit push
+till now we have nothing without dvc
+now pip install dvc
+dvc init , creates .dvcignore and .dvc
+create a new folder named S3
+dvc remote add -d myremote S3
+dvc add data/    , since data folder has the csv file here
+it will throw error since git is already tracking it, we must ask git to untrack this folder data
+git rm -r --cached 'data'
+git commit -m "stop tracking data" 
+again do dvc add data, added successfully
+the above code to remove has added the data/ folder to gitignore so that it doesnt track anymore
