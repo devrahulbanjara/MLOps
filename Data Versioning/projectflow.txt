@@ -1,18 +1,63 @@
-inside a local repo, create code.py and code to it, it will save a csv file to a new data folder
-add commit push
-till now we have nothing without dvc
-now pip install dvc
-dvc init , creates .dvcignore and .dvc
-create a new folder named S3
-dvc remote add -d myremote S3
-dvc add data/    , since data folder has the csv file here
-it will throw error since git is already tracking it, we must ask git to untrack this folder data
-git rm -r --cached 'data'
-git commit -m "stop tracking data" 
-again do dvc add data, added successfully
-the above code to remove has added the data/ folder to git ignore so that it doesnt track anymore
-now dvc commit and dvc push
-commit and push to github the first version of data
-append a new row in data
-check dvc status
-dvc commit and dvc push
+1. Create a file named `code.py` in the local repository.
+2. Write code in `code.py` to generate a CSV file and save it in a new folder named `data/`.
+3. Stage, commit, and push the changes to Git:
+   - git add .
+   - git commit -m "Add code.py and generate CSV in data folder"
+   - git push
+
+4. Install DVC:
+   - pip install dvc
+
+5. Initialize DVC:
+   - dvc init
+   - Creates `.dvc` and `.dvcignore`.
+
+6. Create a new folder named `S3`.
+
+7. Add a DVC remote storage:
+   - dvc remote add -d myremote S3
+
+8. Attempt to add the `data/` folder to DVC:
+   - dvc add data/
+   - This will throw an error because Git is already tracking `data/`.
+
+9. Stop Git from tracking the `data/` folder:
+   - git rm -r --cached data
+   - git commit -m "Stop tracking data folder"
+
+10. Add the `data/` folder to DVC:
+    - dvc add data/
+    - This adds `data/` to DVC, and `.gitignore` is updated to exclude `data/` from Git tracking.
+
+11. Commit and push the changes:
+    - dvc commit
+    - dvc push
+    - git add .
+    - git commit -m "Add first version of data"
+    - git push
+
+12. Modify the CSV file by appending a new row.
+
+13. Check the status of DVC:
+    - dvc status
+
+14. Commit and push the new version of the data:
+    - dvc commit
+    - dvc push
+    - git add .
+    - git commit -m "Add second version of data"
+    - git push
+
+15. Roll back to the first version of data:
+    - git checkout <SHA> (SHA of the first data version commit)
+    - The code will roll back, but the `data/` folder will still contain the latest version.
+
+16. Sync the data to match the rolled-back version:
+    - dvc pull
+
+17. Return to the latest commit:
+    - git checkout main
+    - The code will return to the latest state, but the data will remain at the first commit.
+
+18. Sync the data back to the latest version:
+    - git pull
