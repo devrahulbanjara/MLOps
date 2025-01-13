@@ -12,3 +12,7 @@ git commit -m "stop tracking data"
 again do dvc add data, added successfully
 the above code to remove has added the data/ folder to git ignore so that it doesnt track anymore
 now dvc commit and dvc push
+commit and push to github the first version of data
+append a new row in data
+check dvc status
+dvc commit and dvc push
