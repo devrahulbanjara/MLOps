@@ -1,6 +1,6 @@
 # Docker
 
-## 📦 What is Docker?
+## What is Docker?
 
 Think of Docker like instant noodles.
 
@@ -11,9 +11,9 @@ Think of Docker like instant noodles.
 
 ---
 
-## 🤔 Why Do We Need Docker?
+## Why Do We Need Docker?
 
-### 1. 🧪 Consistency Across Environments
+### 1. Consistency Across Environments
 
 **Problem:**  
 Applications behave differently in dev, test, and prod due to variations in dependencies, OS, or config.
@@ -28,7 +28,7 @@ Docker bundles the application with its dependencies, configs, and OS libraries 
 
 ---
 
-### 2. 🧼 Isolation
+### 2. Isolation
 
 **Problem:**  
 Running multiple applications on the same system can lead to:
@@ -46,7 +46,7 @@ Each Docker container runs in its **own isolated environment**, with its own dep
 
 ---
 
-### 3. 📈 Scalability
+### 3. Scalability
 
 **Problem:**  
 Scaling apps manually to handle load is hard.
@@ -61,7 +61,7 @@ Docker allows **horizontal scaling** by running multiple container instances of 
 
 ---
 
-## 🛠️ Docker Core Concepts
+## Docker Core Concepts
 
 | Concept             | Definition                                                   |
 | ------------------- | ------------------------------------------------------------ |
@@ -74,7 +74,7 @@ Docker allows **horizontal scaling** by running multiple container instances of 
 
 ---
 
-## 🔰 First Steps: Hello World
+## First Steps: Hello World
 
 ```bash
 docker pull hello-world
@@ -90,7 +90,7 @@ docker run hello-world
 
 ---
 
-### 🐧 Run Ubuntu Bash
+### Run Ubuntu Bash
 
 ```bash
 docker run -it ubuntu bash
@@ -98,7 +98,7 @@ docker run -it ubuntu bash
 
 ---
 
-## 📁 Dockerfile Example
+## Dockerfile Example
 
 **Create a Dockerfile**
 
@@ -133,7 +133,7 @@ docker stop mycontainer
 
 ---
 
-## ☁️ Push and Pull from Docker Hub
+## Push and Pull from Docker Hub
 
 **Tag your image**
 
@@ -155,7 +155,7 @@ docker pull username/my-python-app:latest
 
 ---
 
-## 🧃 Docker Compose
+## Docker Compose
 
 **Why Docker Compose?**  
 When you have multiple services (e.g., app + database + cache), Compose lets you define and run them with a single command.
@@ -187,7 +187,7 @@ docker-compose down
 
 ---
 
-## 🌐 Docker Networking
+## Docker Networking
 
 Docker supports three main types of networks:
 
@@ -207,7 +207,7 @@ docker run -d --name db --network mynetwork postgres
 
 ---
 
-## 🔌 Docker Port Mapping
+## Docker Port Mapping
 
 Expose container ports to the host:
 
@@ -221,7 +221,7 @@ docker run -p 8080:80 nginx
 
 ---
 
-## 💾 Docker Volumes
+## Docker Volumes
 
 Volumes persist data outside the container lifecycle.
 
@@ -245,7 +245,7 @@ docker run -v $(pwd)/logs:/app/logs my-python-app
 
 ---
 
-## 🖼️ Docker Image Commands
+## Docker Image Commands
 
 ```bash
 # List images
@@ -257,7 +257,7 @@ docker rmi image_id
 
 ---
 
-## 📦 Container Commands
+## Container Commands
 
 ```bash
 # List running containers
@@ -275,7 +275,7 @@ docker rm container_id
 
 ---
 
-## 📚 Resources
+## Resources
 
 - [Docker Official Docs](https://docs.docker.com/)
 - [Docker Hub](https://hub.docker.com/)
